@@ -20,5 +20,8 @@
 }
 
 @layer components {
-  /* crear aquí conjuntos de clases de tailwind para componentes especificos, x ej boton, se puede mezclar con css comun :o */
+  /* crear aquí conjuntos de clases de tailwind para componentes especificos, se puede mezclar con css comun :o */
+  .chajabox {
+    @apply shadow-lg sm:w-1/3 sm:h-28 h-20 m-4 bg-white rounded border-4
+  }
 }

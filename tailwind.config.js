@@ -8,7 +8,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['odd'],
+      textColor: ['odd']
+    },
   },
   plugins: [],
 }
