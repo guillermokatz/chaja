@@ -1,18 +1,18 @@
-import {useState, useEffect} from 'react';
+// import {useState, useEffect} from 'react';
 
 function Chaja () {
 
-const [chajas, setChajas] = useState([]);
+// const [chajas, setChajas] = useState([]);
 
-useEffect(()=>{
+// useEffect(()=>{
 
-  fetch('/api/chajas')
-    .then(response => response.json())
-      .then(data => {
-        setChajas(data.data)
-      })
-        .catch(error => console.log(error));
-}, []);
+//   fetch('/api/chajas')
+//     .then(response => response.json())
+//       .then(data => {
+//         setChajas(data.data)
+//       })
+//         .catch(error => console.log(error));
+// }, []);
 
 let testChaja = () => <article className=" shadow-lg font-semibold m-2 bg-white rounded border-4 b-gray-900 py-2 px-4 text-xl text-gray-700 transition  hover:bg-purple-800 hover:text-white">
 <p className="inline-block  ">82 caracteres el número máximo que puede tener un chajá! CHAJÁ!</p>

@@ -19,10 +19,6 @@ function App() {
         
       <Navbar/>
       </BrowserRouter>
-      {/* {Array.apply(null, Array(20)).map((i)=>
-          chaja()
-        )} */}
-      
       
     </div>
   );
