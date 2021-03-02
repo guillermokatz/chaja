@@ -46,10 +46,7 @@ function Navbar() {
             if(window.innerWidth > 640) {
               document.getElementById("navbuttons").classList.remove("hidden")
               document.getElementById("chajainput").classList.remove("hidden")
-            } else {
-              document.getElementById("navbuttons").classList.remove("hidden")
-              document.getElementById("chajainput").classList.add("hidden")
-            }            
+            }           
         })}
 
         {window.addEventListener("load", function(e) {
