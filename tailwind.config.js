@@ -10,7 +10,9 @@ module.exports = {
   variants: {
     extend: {
       backgroundColor: ['odd'],
-      textColor: ['odd']
+      textColor: ['odd'],
+      transform: ['hover'],
+      transitionDuration: ['hover']
     },
   },
   plugins: [],
