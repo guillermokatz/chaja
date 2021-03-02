@@ -19,7 +19,9 @@ function App() {
         
       <Navbar/>
       </BrowserRouter>
-      
+
+      <div style={{height: '107px'}}>
+      </div>      
     </div>
   );
 }

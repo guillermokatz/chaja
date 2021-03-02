@@ -25,3 +25,20 @@
     @apply shadow-lg sm:w-1/3 sm:h-28 h-20 m-4 bg-white rounded border-4
   }
 }
+
+.inputNavBar {
+  width: 150px
+}
+
+
+@media (min-width: 640px) {
+  .inputNavBar {
+      width: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inputNavBar {
+      width: 600px !important;
+  }
+}
