@@ -1,6 +1,5 @@
-import {Link} from 'react-router-dom'
 
-function Login () {
+function Register () {
     
     function logUser() {
         fetch('/api/users/login', {
@@ -24,16 +23,15 @@ function Login () {
 
     return (
         <div className="flex flex-col w-max items-center mx-auto">
-            
-            <Link to='/register'>Sin cuenta? Click aquí!</Link>
 
-            <p>USUARIO</p>
+            <h1>Crear cuenta</h1>
+            <p>NUEVO USUARIO</p>
             <input id="username" name="username" type="text">
             </input>
             <p>CONTRASEÑA</p>
             <input id="password" name="password" type="text">
             </input>
-            <button onClick={logUser} type="button">LOGIN</button>
+            <button onClick={logUser} type="button">FINALIZAR</button>
             <small id="info"></small>
             
             
@@ -41,4 +39,4 @@ function Login () {
     )
 }
 
-export default Login;
+export default Register;

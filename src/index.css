@@ -27,18 +27,30 @@
 }
 
 .inputNavBar {
-  width: 150px
+  width: 200px
 }
 
 
-@media (min-width: 640px) {
+@media (min-width: 320px) {
   .inputNavBar {
-      width: 250px;
+      width: 280px;
+  }
+}
+
+@media (min-width: 410px) {
+  .inputNavBar {
+      width: 320px;
   }
 }
 
 @media (min-width: 1024px) {
   .inputNavBar {
-      width: 600px !important;
+      width: 600px ;
+  }
+}
+
+@media (min-width: 1200px) {
+  .inputNavBar {
+      width: 800px !important;
   }
 }
