@@ -1,8 +1,20 @@
 import {Link} from 'react-router-dom'
 
 function Login () {
+
+  let validateLogin = e => {
+    e.preventDefault()
+    if(document.getElementById("username").value.length < 4 || document.getElementById("username").value.length > 14) {
+      alert("Tu usuario debe tener entre 4 y 14 caracteres")
+    }else if (document.getElementById("password").value.length < 6 || document.getElementById("password").value.length > 14) {
+      alert("Tu contraseña debe tener entre 6 y 14 caracteres")    
+    } else {
+      logUser()
+    }
+  }
     
-    function logUser() {
+    let logUser = () => {
+        
         fetch('/api/users/login', {
           method: 'POST',
           body: new URLSearchParams({
@@ -15,7 +27,7 @@ function Login () {
                 if (data === "Usuario no encontrado" || data === "Contraseña incorrecta") {
                     document.getElementById("info").innerText = data
                 } else {
-                    window.location.pathname = '/user'
+                    window.location.pathname = '/'
                 }             
                 
             })
@@ -23,19 +35,29 @@ function Login () {
       };
 
     return (
-        <div className="flex flex-col w-max items-center mx-auto">
-            
-            <Link to='/register'>Sin cuenta? Click aquí!</Link>
+        <div className="popup">
+            <Link className="absolute top-1 right-2 text-4xl bolder" to='/'>X</Link>
 
-            <p>USUARIO</p>
-            <input id="username" name="username" type="text">
+            <p className="text-xl text-center">
+              Sin usuario?
+              <Link to='/register'>
+                <button className="btn-right"> CLICK AQUÍ!</button>
+              </Link>
+            </p>
+
+            <form onSubmit={validateLogin} className="flex flex-col items-center ">
+            <p className="mt-6">USUARIO</p>
+            <input id="username" name="username" type="text" className="text-black w-8/12 mx-auto p-1" autoFocus>
             </input>
-            <p>CONTRASEÑA</p>
-            <input id="password" name="password" type="text">
+            <p className="mt-6">CONTRASEÑA</p>
+            <input id="password" name="password" type="password" className="text-black w-8/12 mx-auto p-1">
             </input>
-            <button onClick={logUser} type="button">LOGIN</button>
-            <small id="info"></small>
-            
+            <p className="mt-6 text-center">
+            <button className="btn-left" type="submit">LOGIN</button>
+            </p>
+            </form>
+
+            <small className="mt-4 text-center font-bold" id="info"></small>
             
         </div>
     )

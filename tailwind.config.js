@@ -12,7 +12,10 @@ module.exports = {
       backgroundColor: ['odd'],
       textColor: ['odd'],
       transform: ['hover'],
-      transitionDuration: ['hover']
+      transitionDuration: ['hover'],
+      ringColor: ['hover'],
+      ringWidth: ['hover'],
+      fontWeight: ['hover']
     },
   },
   plugins: [],

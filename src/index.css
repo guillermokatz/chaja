@@ -24,7 +24,45 @@
   .chajabox {
     @apply shadow-lg sm:w-1/3 sm:h-28 h-20 m-4 bg-white rounded border-4
   }
+
+  .popup {
+    @apply openPage fixed object-center -inset-x-0 -inset-y-0 m-auto rounded-lg border-2 shadow-2xl text-white font-medium bg-purple-800 text-4xl p-10 z-20 flex flex-col w-3/4 h-3/4 items-center justify-between overflow-y-auto
+  }
+
+  .btn-right {
+    @apply bg-purple-500 rounded border-2 border-white p-2 font-semibold tracking-widest hover:ring-white hover:ring-1 mx-1 hover:transform hover:rotate-6 duration-75 hover:font-extrabold hover:bg-purple-400
+  }
+
+  .btn-left {
+    @apply bg-purple-500 rounded border-2 border-white p-2 font-semibold tracking-widest hover:ring-white hover:ring-1 mx-1 hover:transform hover:-rotate-6 duration-75 hover:font-extrabold hover:bg-purple-400
+  }
 }
+
+.openPage { 
+  animation: fadeInAnimation ease 0.3s; 
+  /* animation-iteration-count: 1; 
+  animation-fill-mode: forwards;  */
+} 
+@keyframes fadeInAnimation { 
+  0% { 
+      transform: scale(0,0)
+      /* opacity: 0;  */
+  } 
+  100% { 
+    transform: scale(1,1)  
+    /* opacity: 1;  */
+  } 
+}
+
+/* .inputAnimation {
+  animation: inputEnlarge 1.5s ease forwards; 
+}
+
+@keyframes inputEnlarge { 
+  from { width: 0px } 
+  to { width: max-content } 
+} */
+
 
 .inputNavBar {
   width: 200px

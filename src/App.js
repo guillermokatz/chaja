@@ -11,9 +11,10 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <Chaja/>
+        {/* <Route exact path='/' component={Chaja}/> */}
       <Switch>
        
-        <Route exact path='/' component={Chaja}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/user' component={UserPanel}/>
@@ -24,7 +25,7 @@ function App() {
       <Navbar/>
       </BrowserRouter>
 
-      <div style={{height: '107px'}}>
+      <div style={{paddingTop: '110px'}}>
       </div>      
     </div>
   );
