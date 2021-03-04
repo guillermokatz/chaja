@@ -15,7 +15,7 @@ function Login () {
     
     let logUser = () => {
         
-        fetch('/api/users/login', {
+        fetch('https://chaja-api.herokuapp.com/api/users/login', {
           method: 'POST',
           body: new URLSearchParams({
             'username': document.getElementById("username").value,

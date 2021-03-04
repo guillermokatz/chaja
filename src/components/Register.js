@@ -15,7 +15,7 @@ function Register () {
     
   let registerUser = () => {
 
-        fetch('/api/users/new', {
+        fetch('https://chaja-api.herokuapp.com/api/users/new', {
           method: 'POST',
           body: new URLSearchParams({
             'username': document.getElementById("username").value,

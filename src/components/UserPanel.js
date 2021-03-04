@@ -8,12 +8,12 @@ function UserPanel () {
 
     useEffect(()=>{
 
-        fetch('/api/users/getsession')
+        fetch('https://chaja-api.herokuapp.com/api/users/getsession')
             .then( response => response.json())
                 .then( data => {
                     if (data !== "No access") {
 
-                        fetch("/api/users/" + data)
+                        fetch("https://chaja-api.herokuapp.com/api/users/" + data)
                             .then( response2 => response2.json())
                             .then( data2 => {
                                 // console.log(data2.data)
@@ -30,7 +30,7 @@ function UserPanel () {
 }, []);
 
     function logoutUser() {
-        fetch('/api/users/logout')
+        fetch('https://chaja-api.herokuapp.com/api/users/logout')
             .then( response => window.location.pathname = "/")
                 // .then( data => )
                     .catch( error => console.log(error));
