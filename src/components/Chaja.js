@@ -6,7 +6,7 @@ const [chajas, setChajas] = useState([]);
 
 useEffect(()=>{
 
-  fetch('https://chaja-api.herokuapp.com/api/chajas')
+  fetch('https://chaja-api.herokuapp.com/api/chajas', {credentials: 'include'})
     .then(response => response.json())
       .then(data => {
         setChajas(data.data)

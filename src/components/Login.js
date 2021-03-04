@@ -17,6 +17,7 @@ function Login () {
         
         fetch('https://chaja-api.herokuapp.com/api/users/login', {
           method: 'POST',
+          credentials: 'include',
           body: new URLSearchParams({
             'username': document.getElementById("username").value,
             'password': document.getElementById("password").value

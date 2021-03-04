@@ -9,12 +9,12 @@ function Navbar() {
 
   useEffect(()=>{
     
-    fetch('https://chaja-api.herokuapp.com/api/users/getsession')
+    fetch('https://chaja-api.herokuapp.com/api/users/getsession', {credentials: 'include'})
       .then( response => response.json())
         .then( data => {
           
           if (data !== "No access") {
-            fetch("https://chaja-api.herokuapp.com/api/users/" + data)
+            fetch("https://chaja-api.herokuapp.com/api/users/" + data, {credentials: 'include'})
               .then( response2 => response2.json())
                 .then( data2 => {
                   // console.log(data2.data)
@@ -37,7 +37,7 @@ function Navbar() {
   }
 
   let newChaja = () => {
-    fetch('https://chaja-api.herokuapp.com/api/users/getsession')
+    fetch('https://chaja-api.herokuapp.com/api/users/getsession', {credentials: 'include'})
       .then( responseA => responseA.json())
         .then( dataA => {
           
@@ -46,6 +46,7 @@ function Navbar() {
 
                 fetch('https://chaja-api.herokuapp.com/api/chajas/new', {
                   method: 'POST',
+                  credentials: 'include',
                   body: new URLSearchParams({
                     'user_id': dataA.id,
                     'chaja': document.getElementById("chajainput").value
