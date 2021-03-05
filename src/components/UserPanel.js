@@ -8,12 +8,12 @@ function UserPanel () {
 
     useEffect(()=>{
 
-        fetch('https://chaja-api.herokuapp.com/api/users/getsession', {credentials: 'include'})
+        fetch('/api/users/getsession')
             .then( response => response.json())
                 .then( data => {
                     if (data !== "No access") {
 
-                        fetch("https://chaja-api.herokuapp.com/api/users/" + data, {credentials: 'include'})
+                        fetch("/api/users/" + data)
                             .then( response2 => response2.json())
                             .then( data2 => {
                                 // console.log(data2.data)
@@ -30,10 +30,50 @@ function UserPanel () {
 }, []);
 
     function logoutUser() {
-        fetch('https://chaja-api.herokuapp.com/api/users/logout', {credentials: 'include'})
-            .then( response => window.location.pathname = "/")
-                // .then( data => )
-                    .catch( error => console.log(error));
+        console.log("Logged out as user " + localStorage.getItem("user_id"))
+        localStorage.removeItem("user_id");
+        window.location.pathname = "/"
+        
+        // fetch('/api/users/logout')
+        //     .then( response => window.location.pathname = "/")
+        //         // .then( data => )
+        //             .catch( error => console.log(error));
+    }
+
+    function deleteUser() {
+        let delConfirm = window.confirm('¿Confirma borrar a ' + user.username.toUpperCase() + '? Sus chajas NO desaparecerán pero su nombre SÍ.')
+        
+        if (delConfirm) {
+            let confirmPass = window.prompt('Reingrese su contraseña para eliminar usuario')
+            
+            fetch('/api/users/login', {
+                method: 'POST',
+                body: new URLSearchParams({
+                  'username': user.username,
+                  'password': confirmPass
+                })
+              })
+                .then(response => response.json() )
+                .then(data => {
+                    
+                    if (data === "Contraseña incorrecta") {
+                    alert(data)
+                    } else {
+                          
+                        fetch('/api/users/' + user.id + '/delete', {method: 'DELETE'})
+                        .then( response => {
+                            localStorage.removeItem("user_id");
+                            window.location.pathname = "/"
+                        })
+                        // .then( data => )
+                        .catch( error => console.log(error));
+                    }             
+                      
+                })
+                .catch(error => console.log(error));
+        };
+
+            
     }
 
 
@@ -57,6 +97,7 @@ function UserPanel () {
             })}
 
             </section>
+            <p><button className="btn-del-user absolute bottom-3 right-2" onClick={deleteUser} type="button">BORRAR USUARIO</button></p>
 
             
         </div>

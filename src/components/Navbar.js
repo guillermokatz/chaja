@@ -8,23 +8,34 @@ function Navbar() {
   const [user, setUser] = useState("")
 
   useEffect(()=>{
-    
-    fetch('https://chaja-api.herokuapp.com/api/users/getsession', {credentials: 'include'})
-      .then( response => response.json())
-        .then( data => {
-          
-          if (data !== "No access") {
-            fetch("https://chaja-api.herokuapp.com/api/users/" + data, {credentials: 'include'})
+    // console.log(localStorage.getItem("user_id"))
+    if (localStorage.getItem("user_id")) {
+      fetch("/api/users/" + localStorage.getItem("user_id"))
               .then( response2 => response2.json())
                 .then( data2 => {
-                  // console.log(data2.data)
+                  console.log(data2.data)
                   setUser(data2.data)
                 })
                   .catch( error => console.log(error));
           } 
-        })
-          .catch( error => console.log(error));
-  }, []);
+    }, []);
+
+  //   fetch('/api/users/getsession')
+  //     .then( response => response.json())
+  //       .then( data => {
+          
+  //         if (data !== "No access") {
+  //           fetch("/api/users/" + data)
+  //             .then( response2 => response2.json())
+  //               .then( data2 => {
+  //                 // console.log(data2.data)
+  //                 setUser(data2.data)
+  //               })
+  //                 .catch( error => console.log(error));
+  //         } 
+  //       })
+  //         .catch( error => console.log(error));
+  // }, []);
 
 
   let validateChaja = e => {
@@ -37,18 +48,17 @@ function Navbar() {
   }
 
   let newChaja = () => {
-    fetch('https://chaja-api.herokuapp.com/api/users/getsession', {credentials: 'include'})
-      .then( responseA => responseA.json())
-        .then( dataA => {
-          
-          if (dataA !== "No access") {
-              
 
-                fetch('https://chaja-api.herokuapp.com/api/chajas/new', {
+    if (localStorage.getItem("user_id")) {
+    // fetch('/api/users/getsession')
+    //   .then( responseA => responseA.json())
+    //     .then( dataA => {
+          
+    //       if (dataA !== "No access") {
+                 fetch('/api/chajas/new', {
                   method: 'POST',
-                  credentials: 'include',
                   body: new URLSearchParams({
-                    'user_id': dataA.id,
+                    'user_id': localStorage.getItem("user_id"),
                     'chaja': document.getElementById("chajainput").value
                   })
                 })
@@ -64,8 +74,8 @@ function Navbar() {
             window.location.pathname = '/login'
           }
         
-        });
   };
+  
 
   function changeLogoOpen() {
     document.getElementById("chajalogo").setAttribute("src", `${chajaopen}`);

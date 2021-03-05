@@ -36,6 +36,10 @@
   .btn-left {
     @apply bg-purple-500 rounded border-2 border-white p-2 font-semibold tracking-widest hover:ring-white hover:ring-1 mx-1 hover:transform hover:-rotate-6 duration-75 hover:font-extrabold hover:bg-purple-400
   }
+
+  .btn-del-user {
+    @apply text-xs bg-black rounded border-2 border-white p-2 font-semibold tracking-widest hover:ring-white hover:ring-1 mx-1 hover:font-extrabold hover:bg-red-800
+  }
 }
 
 .openPage { 

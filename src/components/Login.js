@@ -15,9 +15,8 @@ function Login () {
     
     let logUser = () => {
         
-        fetch('https://chaja-api.herokuapp.com/api/users/login', {
+        fetch('/api/users/login', {
           method: 'POST',
-          credentials: 'include',
           body: new URLSearchParams({
             'username': document.getElementById("username").value,
             'password': document.getElementById("password").value
@@ -28,6 +27,8 @@ function Login () {
                 if (data === "Usuario no encontrado" || data === "Contraseña incorrecta") {
                     document.getElementById("info").innerText = data
                 } else {
+                    localStorage.setItem("user_id", data);
+                    console.log("Logged as user " + localStorage.getItem("user_id"))
                     window.location.pathname = '/'
                 }             
                 
