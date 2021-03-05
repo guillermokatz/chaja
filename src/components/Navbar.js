@@ -3,6 +3,9 @@ import chajaopen from '../assets/img/chajaopen.png';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import Alerts from '../assets/js/Alerts'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
 
 function Navbar() {
 
@@ -71,7 +74,19 @@ function Navbar() {
                       .catch(error => console.log(error));
           } else {
             
-            Alerts.pop("Debe loggearse!",'/login')
+            // Alerts.pop("Debe loggearse!",'/login')
+            MySwal.fire({
+        
+              icon: 'warning',
+              title: "Debe loggearse!",
+              confirmButtonColor: "#8B5CF6",
+              iconColor: "#8B5CF6",
+              
+          }).then(function(result){              
+              if(result.isConfirmed) {
+                  window.location.pathname = '/login'
+              }
+          })
             
             
           }
@@ -118,7 +133,7 @@ function Navbar() {
       <p className="static z-20 flex-shrink-0" style={{width: "68px"}}><Link to='/'><img width="68" onClick={chajaWrite} onMouseOver={changeLogoOpen} onMouseOut={changeLogoClosed} id="chajalogo" src={chajalogo} className="cursor-pointer  self-center" alt="Chaja Logo"></img></Link></p>
       
       <form onSubmit={validateChaja} id="inputContainer" className="static z-20 self-center flex mx-2 sm:mx-10 pr-4">
-        <input id="chajainput" className="inputNavBar rounded tracking-wide border-2 outline-none border-gray-400 focus:ring-2 focus:ring-purple-600 hover:border-purple-800 font-semibold text-2xl p-2 flex-shrink" type="text" placeholder="CHAJÁ!!" autoFocus /> 
+        <input id="chajainput" maxLength="82" className="inputNavBar rounded tracking-wide border-2 outline-none border-gray-400 focus:ring-2 focus:ring-purple-600 hover:border-purple-800 font-semibold text-2xl p-2 flex-shrink" type="text" placeholder="CHAJÁ!!" autoFocus /> 
       </form>
           
       <article id="navbuttons" className="absolute -right-0 bottom-8 z-0 flex text-purple-700 font-bold text-right items-center nowrap mr-10 ">
