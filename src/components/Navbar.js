@@ -74,19 +74,19 @@ function Navbar() {
                       .catch(error => console.log(error));
           } else {
             
-            // Alerts.pop("Debe loggearse!",'/login')
-            MySwal.fire({
+            Alerts.pop("Debe loggearse!")
+          //   MySwal.fire({
         
-              icon: 'warning',
-              title: "Debe loggearse!",
-              confirmButtonColor: "#8B5CF6",
-              iconColor: "#8B5CF6",
+          //     icon: 'warning',
+          //     title: "Debe loggearse!",
+          //     confirmButtonColor: "#8B5CF6",
+          //     iconColor: "#8B5CF6",
               
-          }).then(function(result){              
-              if(result.isConfirmed) {
-                  window.location.pathname = '/login'
-              }
-          })
+          // }).then(function(result){              
+          //     if(result.isConfirmed) {
+          //         window.location.pathname = '/login'
+          //     }
+          // })
             
             
           }
