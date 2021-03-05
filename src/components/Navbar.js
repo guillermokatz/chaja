@@ -3,9 +3,9 @@ import chajaopen from '../assets/img/chajaopen.png';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react'
 import Alerts from '../assets/js/Alerts'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
+// import Swal from 'sweetalert2'
+// import withReactContent from 'sweetalert2-react-content'
+// const MySwal = withReactContent(Swal)
 
 function Navbar() {
 
