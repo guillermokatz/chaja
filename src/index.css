@@ -26,7 +26,7 @@
   }
 
   .popup {
-    @apply openPage fixed object-center -inset-x-0 -inset-y-0 m-auto rounded-lg border-2 shadow-2xl text-white font-medium bg-purple-800 text-4xl p-10 z-20 flex flex-col w-3/4 h-3/4 items-center justify-between overflow-y-auto
+    @apply openPage fixed object-center -inset-x-0 -inset-y-0 m-auto rounded-lg border-2 shadow-2xl text-white font-medium bg-purple-800 text-4xl p-10 z-20 flex flex-col w-4/5 h-4/5 items-center justify-between overflow-y-auto
   }
 
   .btn-right {

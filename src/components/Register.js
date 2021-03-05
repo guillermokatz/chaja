@@ -1,13 +1,14 @@
 import {Link} from 'react-router-dom'
+import Alerts from '../assets/js/Alerts'
 
 function Register () {
 
   let validateRegister = e => {
     e.preventDefault()
     if(document.getElementById("username").value.length < 4 || document.getElementById("username").value.length > 14) {
-      alert("Tu usuario debe tener entre 4 y 14 caracteres")
+      Alerts.pop("Tu usuario debe tener entre 4 y 14 caracteres")
     }else if (document.getElementById("password").value.length < 6 || document.getElementById("password").value.length > 14) {
-      alert("Tu contraseña debe tener entre 6 y 14 caracteres")    
+      Alerts.pop("Tu contraseña debe tener entre 6 y 14 caracteres")    
     } else {
       registerUser()
     }
@@ -24,11 +25,12 @@ function Register () {
         })
           .then(response => response.json() )
             .then(data => {
-              if (data === "Usuario ya existente") {
+              if (data === "Usuario no disponible") {
                 document.getElementById("info").innerText = data
               } else {
-              alert("Usuario registrado!")
-              window.location.pathname = '/'
+                localStorage.setItem("user_id", data);
+                Alerts.pop("Usuario registrado!", "/")
+                
               }
             })
               .catch(error => console.log(error));

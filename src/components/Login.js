@@ -1,13 +1,17 @@
 import {Link} from 'react-router-dom'
-
+import Alerts from '../assets/js/Alerts'
 function Login () {
+
+
+
 
   let validateLogin = e => {
     e.preventDefault()
     if(document.getElementById("username").value.length < 4 || document.getElementById("username").value.length > 14) {
-      alert("Tu usuario debe tener entre 4 y 14 caracteres")
+      Alerts.pop("Tu usuario debe tener entre 4 y 14 caracteres")
+      
     }else if (document.getElementById("password").value.length < 6 || document.getElementById("password").value.length > 14) {
-      alert("Tu contraseña debe tener entre 6 y 14 caracteres")    
+      Alerts.pop("Tu contraseña debe tener entre 6 y 14 caracteres")    
     } else {
       logUser()
     }

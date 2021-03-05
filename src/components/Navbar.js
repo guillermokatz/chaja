@@ -2,6 +2,7 @@ import chajalogo from '../assets/img/chaja.png';
 import chajaopen from '../assets/img/chajaopen.png';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react'
+import Alerts from '../assets/js/Alerts'
 
 function Navbar() {
 
@@ -41,7 +42,7 @@ function Navbar() {
   let validateChaja = e => {
     e.preventDefault()
     if(document.getElementById("chajainput").value.length === 0 || document.getElementById("chajainput").value.length > 82) {
-      alert("Un CHAJÁ tiene entre 1 y 82 caracteres!")
+      Alerts.pop("Un CHAJÁ tiene entre 1 y 82 caracteres!")
     } else {
       newChaja()
     }
@@ -70,8 +71,9 @@ function Navbar() {
                       .catch(error => console.log(error));
           } else {
             
-            alert("Debe loggearse!")
-            window.location.pathname = '/login'
+            Alerts.pop("Debe loggearse!",'/login')
+            
+            
           }
         
   };
