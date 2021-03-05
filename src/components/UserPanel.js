@@ -12,7 +12,7 @@ function UserPanel () {
     useEffect(()=>{
 
             if (localStorage.getItem("user_id")) {
-                        fetch("/api/users/" + localStorage.getItem("user_id"))
+                        fetch("https://chaja-api.herokuapp.com/api/users/" + localStorage.getItem("user_id"))
                             .then( response2 => response2.json())
                             .then( data2 => {
                                 // console.log(data2.data)
@@ -59,7 +59,7 @@ function UserPanel () {
                         cancelButtonColor: '#8B5CF6',
                     }).then(result => {
 
-                            fetch('/api/users/login', {
+                            fetch('https://chaja-api.herokuapp.com/api/users/login', {
                                 method: 'POST',
                                 body: new URLSearchParams({
                                 'username': user.username,
@@ -73,7 +73,7 @@ function UserPanel () {
                                     Alerts.pop(data)
                                     } else {
                                         
-                                        fetch('/api/users/' + user.id + '/delete', {method: 'DELETE'})
+                                        fetch('https://chaja-api.herokuapp.com/api/users/' + user.id + '/delete', {method: 'DELETE'})
                                         .then( response => {
                                             localStorage.removeItem("user_id");
                                             window.location.pathname = "/"

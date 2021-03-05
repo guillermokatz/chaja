@@ -11,7 +11,7 @@ function Navbar() {
   useEffect(()=>{
     // console.log(localStorage.getItem("user_id"))
     if (localStorage.getItem("user_id")) {
-      fetch("/api/users/" + localStorage.getItem("user_id"))
+      fetch("https://chaja-api.herokuapp.com/api/users/" + localStorage.getItem("user_id"))
               .then( response2 => response2.json())
                 .then( data2 => {
                   console.log(data2.data)
@@ -56,7 +56,7 @@ function Navbar() {
     //     .then( dataA => {
           
     //       if (dataA !== "No access") {
-                 fetch('/api/chajas/new', {
+                 fetch('https://chaja-api.herokuapp.com/api/chajas/new', {
                   method: 'POST',
                   body: new URLSearchParams({
                     'user_id': localStorage.getItem("user_id"),

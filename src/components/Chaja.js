@@ -6,7 +6,7 @@ const [chajas, setChajas] = useState("");
 
 useEffect(()=>{
 
-  fetch('/api/chajas')
+  fetch('https://chaja-api.herokuapp.com/api/chajas')
     .then(response => response.json())
       .then(data => {
         setChajas(data.data)
