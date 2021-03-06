@@ -93,7 +93,7 @@ function UserPanel () {
 
     return(
         <div id="data" className="popup">
-            <Link className="absolute top-1 right-2 text-4xl bolder" to='/'>X</Link>
+            <Link className="absolute top-1 right-2 text-4xl font-extrabold" to='/'>X</Link>
 
             <section className="text-center">
                 {user === "" ? <p>CARGANDO USUARI@...</p> : <p className="text-4xl font-semibold">Hola {user.username}!</p> }

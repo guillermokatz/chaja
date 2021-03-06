@@ -42,7 +42,7 @@ function Login () {
 
     return (
         <div className="popup">
-            <Link className="absolute top-1 right-2 text-4xl bolder" to='/'>X</Link>
+            <Link className="absolute top-1 right-2 text-4xl font-extrabold" to='/'>X</Link>
 
             <p className="text-xl text-center">
               Sin usuario?

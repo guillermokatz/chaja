@@ -25,8 +25,8 @@ function App() {
       <Navbar/>
       </BrowserRouter>
 
-      <div style={{paddingTop: '110px'}}>
-      </div>      
+      {/* <p style={{paddingTop: '110px'}}>
+      </p>       */}
     </div>
   );
 }
